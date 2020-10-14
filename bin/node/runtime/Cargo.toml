@@ -19,6 +19,7 @@ integer-sqrt = { version = "0.1.2" }
 serde = { version = "1.0.102", optional = true }
 static_assertions = "1.1.0"
 hex-literal = { version = "0.3.1", optional = true }
+pallet-dia-ocw = { version = "2.0.0", default-features = false, path = "../../../frame/dia-ocw" }
 
 # primitives
 sp-authority-discovery = { version = "2.0.0", default-features = false, path = "../../../primitives/authority-discovery" }
@@ -144,6 +145,7 @@ std = [
 	"pallet-society/std",
 	"pallet-recovery/std",
 	"pallet-vesting/std",
+	"pallet-dia-ocw/std",
 ]
 runtime-benchmarks = [
 	"frame-benchmarking",

@@ -782,6 +782,21 @@ impl pallet_im_online::Trait for Runtime {
 }
 
 parameter_types! {
+	pub const OCWUnsignedPriority: TransactionPriority = TransactionPriority::max_value();
+	pub const OCWInterval: BlockNumber = 101;
+	pub const OCWGracePeriod: BlockNumber = 1000;
+}
+
+impl pallet_dia_ocw::Trait for Runtime {
+	type Event = Event;
+	type Call = Call;
+	type AuthorityId = pallet_dia_ocw::crypto::TestAuthId;
+	type GracePeriod = OCWGracePeriod;
+	type UnsignedInterval = OCWInterval;
+	type UnsignedPriority = OCWUnsignedPriority;
+}
+
+parameter_types! {
 	pub OffencesWeightSoftLimit: Weight = Perbill::from_percent(60) * MaximumBlockWeight::get();
 }
 
@@ -944,6 +959,7 @@ construct_runtime!(
 		Scheduler: pallet_scheduler::{Module, Call, Storage, Event<T>},
 		Proxy: pallet_proxy::{Module, Call, Storage, Event<T>},
 		Multisig: pallet_multisig::{Module, Call, Storage, Event<T>},
+		DIAOCW: pallet_dia_ocw::{Module, Call, Storage, Event<T>},
 	}
 );
 

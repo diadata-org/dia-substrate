@@ -3881,6 +3881,7 @@ dependencies = [
  "pallet-contracts-primitives",
  "pallet-contracts-rpc-runtime-api",
  "pallet-democracy",
+ "pallet-dia-ocw",
  "pallet-elections-phragmen",
  "pallet-finality-tracker",
  "pallet-grandpa",
@@ -4439,6 +4440,22 @@ dependencies = [
  "sp-std",
  "sp-storage",
  "substrate-test-utils",
+]
+
+[[package]]
+name = "pallet-dia-ocw"
+version = "2.0.0"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "lite-json",
+ "parity-scale-codec",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-keystore",
+ "sp-runtime",
+ "sp-std",
 ]
 
 [[package]]
