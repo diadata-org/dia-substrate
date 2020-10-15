@@ -4,7 +4,7 @@
 /// Learn more about FRAME and the core library of Substrate FRAME pallets:
 /// https://substrate.dev/docs/en/knowledgebase/runtime/frame
 
-use frame_support::{decl_module, decl_storage, decl_event, decl_error, dispatch, traits::Get};
+use frame_support::{debug, decl_module, decl_storage, decl_event, decl_error, dispatch, traits::Get};
 use frame_system::ensure_signed;
 
 #[cfg(test)]
@@ -73,7 +73,8 @@ decl_module! {
 			let who = ensure_signed(origin)?;
 
 			// Update storage.
-			Something::put(something);
+			//Something::put(something);
+			debug::info!("doing something");
 
 			// Emit an event.
 			Self::deposit_event(RawEvent::SomethingStored(something, who));
