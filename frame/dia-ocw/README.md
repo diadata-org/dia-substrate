@@ -1,7 +1,5 @@
 # DIA offchain worker
 
-_(not production ready for now)_
-
 This offchain worker (ocw) gets data from an endpoint and writes an event as signed transaction for all local keys with subkey type `dia!`.
 
 ## Install
