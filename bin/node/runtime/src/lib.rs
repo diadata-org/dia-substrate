@@ -781,6 +781,12 @@ impl pallet_im_online::Trait for Runtime {
 	type WeightInfo = weights::pallet_im_online::WeightInfo<Runtime>;
 }
 
+impl pallet_dia_ocw::Trait for Runtime {
+	type Event = Event;
+	type Call = Call;
+	type AuthorityId = pallet_dia_ocw::crypto::TestAuthId;
+}
+
 parameter_types! {
 	pub OffencesWeightSoftLimit: Weight = Perbill::from_percent(60) * MaximumBlockWeight::get();
 }
@@ -944,6 +950,7 @@ construct_runtime!(
 		Scheduler: pallet_scheduler::{Module, Call, Storage, Event<T>},
 		Proxy: pallet_proxy::{Module, Call, Storage, Event<T>},
 		Multisig: pallet_multisig::{Module, Call, Storage, Event<T>},
+		DIAOCW: pallet_dia_ocw::{Module, Call, Event<T>},
 	}
 );
 
